@@ -33,14 +33,5 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
-      - name: Enable GitHub Pages
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh api --method POST -H "Accept: application/vnd.github+json" \
-            "/repos/${GITHUB_REPOSITORY}/pages" \
-            -f build_type=workflow \
-            || gh api -H "Accept: application/vnd.github+json" \
-            "/repos/${GITHUB_REPOSITORY}/pages"
       - id: deployment
         uses: actions/deploy-pages@v4
