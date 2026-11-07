@@ -1,0 +1,27 @@
+node_modules
+.next
+out
+dist
+target
+tsconfig.tsbuildinfo
+test-ledger
+.anchor
+.surfpool
+.yarn
+.DS_Store
+*.log
+
+# Keys stay off the repo. Program ids are public; secret keypairs are not.
+*-keypair.json
+**/*-keypair.json
+.env
+.env.*
+!.env.example
+
+# Local dumps of public programs used only for tests.
+programs/neon_dojo/tests/fixtures/*.so
+
+# Editor
+.idea
+.vscode
+*.rs.bk

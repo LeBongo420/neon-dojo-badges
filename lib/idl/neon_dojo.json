@@ -1,0 +1,423 @@
+{
+  "address": "EoShEYPGFAarnDTUAQXDxHnQhNkb69vUxVgiErLFRSRd",
+  "metadata": {
+    "name": "neon_dojo",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Neon Dojo best scores and free devnet badge NFTs"
+  },
+  "instructions": [
+    {
+      "name": "claim_badge",
+      "discriminator": [
+        111,
+        30,
+        18,
+        17,
+        228,
+        252,
+        239,
+        102
+      ],
+      "accounts": [
+        {
+          "name": "player",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "player_score",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  99,
+                  111,
+                  114,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "player"
+              }
+            ]
+          }
+        },
+        {
+          "name": "badge_claim",
+          "writable": true
+        },
+        {
+          "name": "mint",
+          "writable": true
+        },
+        {
+          "name": "mint_authority"
+        },
+        {
+          "name": "token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "player"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "metadata",
+          "writable": true
+        },
+        {
+          "name": "master_edition",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "token_metadata_program",
+          "address": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "tier",
+          "type": "u8"
+        },
+        {
+          "name": "uri",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "submit_score",
+      "discriminator": [
+        212,
+        128,
+        45,
+        22,
+        112,
+        82,
+        85,
+        235
+      ],
+      "accounts": [
+        {
+          "name": "player",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "player_score",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  99,
+                  111,
+                  114,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "player"
+              }
+            ]
+          }
+        },
+        {
+          "name": "board",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  111,
+                  97,
+                  114,
+                  100
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "score",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "BadgeClaim",
+      "discriminator": [
+        36,
+        225,
+        123,
+        192,
+        9,
+        179,
+        190,
+        20
+      ]
+    },
+    {
+      "name": "Board",
+      "discriminator": [
+        79,
+        48,
+        160,
+        63,
+        153,
+        132,
+        240,
+        56
+      ]
+    },
+    {
+      "name": "PlayerScore",
+      "discriminator": [
+        9,
+        136,
+        69,
+        222,
+        93,
+        178,
+        186,
+        241
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "ScoreOutOfRange",
+      "msg": "Score must be between 1 and 1000000"
+    },
+    {
+      "code": 6001,
+      "name": "ScoreNotHigher",
+      "msg": "Score is not higher than the saved best"
+    },
+    {
+      "code": 6002,
+      "name": "BadTier",
+      "msg": "Unknown badge tier"
+    },
+    {
+      "code": 6003,
+      "name": "ScoreTooLow",
+      "msg": "Best score is below this badge"
+    },
+    {
+      "code": 6004,
+      "name": "WrongPlayer",
+      "msg": "Score account does not belong to this wallet"
+    },
+    {
+      "code": 6005,
+      "name": "BadUri",
+      "msg": "Badge art link must be a short localhost or https URL for this rank"
+    },
+    {
+      "code": 6006,
+      "name": "BadMetadata",
+      "msg": "Metadata account is not the expected PDA"
+    }
+  ],
+  "types": [
+    {
+      "name": "BadgeClaim",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "tier",
+            "type": "u8"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "claimed_at",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Board",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "entries",
+            "type": {
+              "array": [
+                {
+                  "defined": {
+                    "name": "BoardEntry"
+                  }
+                },
+                10
+              ]
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BoardEntry",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "player",
+            "type": "pubkey"
+          },
+          {
+            "name": "score",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PlayerScore",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "best_score",
+            "type": "u64"
+          },
+          {
+            "name": "updated_at",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ],
+  "constants": [
+    {
+      "name": "ACE_SCORE",
+      "type": "u64",
+      "value": "3000"
+    },
+    {
+      "name": "MAX_SCORE",
+      "type": "u64",
+      "value": "1000000"
+    },
+    {
+      "name": "NOVICE_SCORE",
+      "type": "u64",
+      "value": "500"
+    },
+    {
+      "name": "PILOT_SCORE",
+      "type": "u64",
+      "value": "1500"
+    }
+  ]
+}

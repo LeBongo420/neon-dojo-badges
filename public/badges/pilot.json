@@ -1,0 +1,12 @@
+{
+  "name": "Neon Dojo Pilot",
+  "symbol": "DOJO",
+  "description": "Free Solana devnet badge. Shape: Hexagon. Upward chevrons: 2. Earned with a best score of 1500 or more in Neon Dojo. No payment and no real money.",
+  "image": "pilot.png",
+  "attributes": [
+    { "trait_type": "Rank", "value": "Pilot" },
+    { "trait_type": "Shape", "value": "Hexagon" },
+    { "trait_type": "Chevrons", "value": "2" },
+    { "trait_type": "Network", "value": "Devnet" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Neon Dojo Ace",
+  "symbol": "DOJO",
+  "description": "Free Solana devnet badge. Shape: Star. Upward chevrons: 3. Earned with a best score of 3000 or more in Neon Dojo. No payment and no real money.",
+  "image": "ace.png",
+  "attributes": [
+    { "trait_type": "Rank", "value": "Ace" },
+    { "trait_type": "Shape", "value": "Star" },
+    { "trait_type": "Chevrons", "value": "3" },
+    { "trait_type": "Network", "value": "Devnet" }
+  ]
+}

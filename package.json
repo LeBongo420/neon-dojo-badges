@@ -1,0 +1,43 @@
+{
+  "name": "neon-dojo-badges",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 43123 -H 0.0.0.0",
+    "build": "next build",
+    "start": "python3 -m http.server 43123 --directory out --bind 0.0.0.0",
+    "lint": "eslint",
+    "test:game": "tsx --test lib/game/sim.test.ts",
+    "badges": "node scripts/write-badge-pngs.mjs"
+  },
+  "dependencies": {
+    "@anchor-lang/core": "^1.2.2",
+    "@base-ui/react": "^1.9.0",
+    "@solana/wallet-adapter-base": "^0.9.28",
+    "@solana/wallet-adapter-phantom": "^0.9.30",
+    "@solana/wallet-adapter-react": "^0.15.40",
+    "@solana/wallet-adapter-react-ui": "^0.9.40",
+    "@solana/wallet-adapter-solflare": "^0.6.32",
+    "@solana/web3.js": "^1.99.0",
+    "buffer": "^6.0.3",
+    "class-variance-authority": "^0.7.1",
+    "cn": "^0.5.2",
+    "lucide-react": "^1.70.0",
+    "next": "16.4.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "shadcn": "^4.23.0",
+    "tw-animate-css": "^1.4.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.5",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "typescript": "^5"
+  }
+}
