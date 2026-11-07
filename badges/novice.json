@@ -1,0 +1,12 @@
+{
+  "name": "Neon Dojo Novice",
+  "symbol": "DOJO",
+  "description": "Free Solana devnet badge. Shape: Circle. Upward chevrons: 1. Earned with a best score of 500 or more in Neon Dojo. No payment and no real money.",
+  "image": "novice.png",
+  "attributes": [
+    { "trait_type": "Rank", "value": "Novice" },
+    { "trait_type": "Shape", "value": "Circle" },
+    { "trait_type": "Chevrons", "value": "1" },
+    { "trait_type": "Network", "value": "Devnet" }
+  ]
+}
